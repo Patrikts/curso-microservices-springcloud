@@ -4,8 +4,8 @@ import io.github.cursodsousa.msclientes.domain.Cliente;
 import io.github.cursodsousa.msclientes.infra.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -22,6 +22,4 @@ public class ClienteService {
     public Optional<Cliente> getByCPF(String cpf){
         return repository.findByCpf(cpf);
     }
-
-
 }

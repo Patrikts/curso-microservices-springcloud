@@ -10,8 +10,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartoesPorClienteResponse
-{
+public class CartoesPorClienteResponse {
     private String nome;
     private String bandeira;
     private BigDecimal limiteLiberado;
@@ -23,5 +22,4 @@ public class CartoesPorClienteResponse
                 model.getLimite()
         );
     }
-
 }

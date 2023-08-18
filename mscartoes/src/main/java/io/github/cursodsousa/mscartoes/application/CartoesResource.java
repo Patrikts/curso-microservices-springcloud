@@ -21,13 +21,12 @@ public class CartoesResource {
     private final ClienteCartaoService clienteCartaoService;
 
     @GetMapping
-    public String status()
-    {
+    public String status(){
         return "ok";
     }
 
     @PostMapping
-    public ResponseEntity cadastra(@RequestBody CartaoSaveRequest request){
+    public ResponseEntity cadastra( @RequestBody CartaoSaveRequest request ){
         Cartao cartao = request.toModel();
         cartaoService.save(cartao);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -44,9 +43,8 @@ public class CartoesResource {
             @RequestParam("cpf") String cpf){
         List<ClienteCartao> lista = clienteCartaoService.listCartoesByCpf(cpf);
         List<CartoesPorClienteResponse> resultList = lista.stream()
-                                                          .map(CartoesPorClienteResponse::fromModel)
-                                                          .collect(Collectors.toList());
+                .map(CartoesPorClienteResponse::fromModel)
+                .collect(Collectors.toList());
         return ResponseEntity.ok(resultList);
     }
-
-  }
+}
