@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("clientes")
@@ -20,13 +19,13 @@ public class ClientesResource {
     private final ClienteService service;
 
     @GetMapping
-    public String status() {
+    public String status(){
         log.info("Obtendo o status do microservice de clientes");
         return "ok";
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody ClienteSaveRequest request) {
+    public ResponseEntity save(@RequestBody ClienteSaveRequest request){
         var cliente = request.toModel();
         service.save(cliente);
         URI headerLocation = ServletUriComponentsBuilder
